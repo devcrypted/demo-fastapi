@@ -17,7 +17,7 @@ tasks_db = []
 
 
 # Endpoint to create a new task
-@app.post("/tasks/", response_model=Task)
+@app.post("/", response_model=Task)
 def create_task(task: Task):
     task.id = uuid4()
     tasks_db.append(task)
@@ -25,7 +25,7 @@ def create_task(task: Task):
 
 
 # Endpoint to get a task by id
-@app.get("/tasks/{task_id}", response_model=Task)
+@app.get("/{task_id}", response_model=Task)
 def get_task(task_id: UUID):
     for task in tasks_db:
         if task.id == task_id:
@@ -34,7 +34,7 @@ def get_task(task_id: UUID):
 
 
 # Endpoint to update a task by id
-@app.put("/tasks/{task_id}", response_model=Task)
+@app.put("/{task_id}", response_model=Task)
 def update_task(task_id: UUID, updated_task: Task):
     for index, task in enumerate(tasks_db):
         if task.id == task_id:
@@ -45,7 +45,7 @@ def update_task(task_id: UUID, updated_task: Task):
 
 
 # Endpoint to delete a task by id
-@app.delete("/tasks/{task_id}", response_model=Task)
+@app.delete("/{task_id}", response_model=Task)
 def delete_task(task_id: UUID):
     for index, task in enumerate(tasks_db):
         if task.id == task_id:
@@ -55,6 +55,6 @@ def delete_task(task_id: UUID):
 
 
 # Endpoint to list all tasks
-@app.get("/tasks/", response_model=List[Task])
+@app.get("/", response_model=List[Task])
 def list_tasks():
     return tasks_db
