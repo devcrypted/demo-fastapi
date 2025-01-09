@@ -36,8 +36,8 @@ Now you can access the application at `http://localhost:8080/docs`.
 
 ## API Endpoints
 
-- **POST /tasks/**: Create a new task
-- **GET /tasks/**: Retrieve all tasks
-- **GET /tasks/{task_id}**: Retrieve a task by its ID
-- **PUT /tasks/{task_id}**: Update a task by its ID
-- **DELETE /tasks/{task_id}**: Delete a task by its ID
+- **POST /**: Create a new task
+- **GET /**: Retrieve all tasks
+- **GET /{task_id}**: Retrieve a task by its ID
+- **PUT /{task_id}**: Update a task by its ID
+- **DELETE /{task_id}**: Delete a task by its ID
